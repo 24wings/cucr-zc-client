@@ -1,19 +1,25 @@
 import { Injectable } from "@angular/core";
 import { CanActivate, Router, ActivatedRouteSnapshot } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-
+import notify from "devextreme/ui/notify";
 @Injectable()
 export class AuthService {
-  loggedIn = false;
+  loggedIn = true;
 
-  constructor(private router: Router, public httpClient: HttpClient) {}
+  constructor(private router: Router, public httpClient: HttpClient) { }
 
   async logIn(login: string, password: string) {
-    this.loggedIn = true;
-    var rtn = await this.httpClient
-      .post("/api/Auth/Sign/login", { username: login, password })
-      .toPromise();
-    this.router.navigate(["/"]);
+
+    // var rtn = await this.httpClient
+    //   .post("/api/Auth/Sign/login", { username: login, password })
+    //   .toPromise();
+    if (login == "admin" && password == "8888") {
+      this.loggedIn = true;
+      this.router.navigate(["/"]);
+    } else {
+      notify("用户名或密码错误", "erro");
+    }
+
   }
 
   logOut() {
@@ -28,7 +34,7 @@ export class AuthService {
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.authService.isLoggedIn;

@@ -14,7 +14,7 @@ import { SharedModule } from "./shared/shared.module";
 import { SingleCardModule } from "./layouts";
 
 const routes: Routes = [
-  { path: "home", loadChildren: "./libs/home/home.module#HomeModule" },
+  // { path: "home", loadChildren: "./libs/home/home.module#HomeModule" },
   { path: "admin/blog", loadChildren: "./libs/blog/blog.module#BlogModule" },
   {
     path: "admin/sql-inject",
@@ -22,6 +22,7 @@ const routes: Routes = [
   },
   { path: "admin/rbac", loadChildren: "./libs/rbac/rbac.module#RbacModule" },
   { path: "admin/xss", loadChildren: "./libs/xss/xss.module#XSSModule" },
+  { path: "admin/task", loadChildren: "./libs/task/task.module#TaskModule" },
   {
     path: "admin/worker",
     loadChildren: "./libs/worker/worker.module#WorkerModule"
@@ -37,11 +38,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  // {
-  //   path: "home",
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuardService]
-  // },
+  {
+    path: "home",
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
+  },
   {
     path: "login-form",
     component: LoginFormComponent,
@@ -67,4 +68,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [HomeComponent, ProfileComponent, DisplayDataComponent]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

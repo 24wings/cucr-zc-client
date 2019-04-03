@@ -7,6 +7,7 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { RolePageComponent } from './pages/role-page/role-page.component';
 import { MetaModule } from '../meta/meta.module';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { CompanyPageComponent } from './pages/company-page/company-page.component';
 
 @NgModule({
   imports: [
@@ -16,9 +17,14 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
       { path: "org", component: OrgPageComponent },
       { path: "menu", component: MenuPageComponent },
       { path: "role", component: RolePageComponent },
-      { path: 'user', component: UserPageComponent }
+      { path: 'user', component: UserPageComponent },
+      { path: "company", component: CompanyPageComponent }
     ])],
-  declarations: [OrgPageComponent, MenuPageComponent, RolePageComponent, UserPageComponent],
+  declarations: [OrgPageComponent,
+    MenuPageComponent,
+    RolePageComponent,
+    UserPageComponent,
+    CompanyPageComponent],
   exports: [MetaModule]
 })
 export class RbacModule {

@@ -10,10 +10,10 @@ export class RolePageComponent {
   popupVisible = false;
   menuColumns: DevExpress.ui.dxTreeListColumn[] = [{ caption: "菜单", dataField: "text" }, { caption: "链接", dataField: 'link' }]
   constructor() {
-    var url = environment.ip + "/api/rbac/Role";
+    var url = environment.ip + "/api/CucrSaas/ZC/Admin/Role";
 
     this.dataSource = AspNetData.createStore({
-      key: "roleId",
+      key: "id",
       loadUrl: url,
       insertUrl: url,
       updateUrl: url,

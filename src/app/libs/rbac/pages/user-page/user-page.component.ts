@@ -5,9 +5,12 @@ import { DxDataGridComponent } from 'devextreme-angular';
 @Component({ selector: "user-page", templateUrl: './user-page.component.html' })
 export class UserPageComponent {
   @ViewChild(DxDataGridComponent) dataGridComponent: DxDataGridComponent;
-  userUrl = environment.ip + '/api/rbac/User'
+  userUrl = environment.ip + "/api/CucrSaas/ZC/Admin/User"
+  popupVisible = false;
+
+
   dataSource = AspNetData.createStore({
-    key: "userId",
+    key: "id",
     loadUrl: this.userUrl,
     insertUrl: this.userUrl,
     updateUrl: this.userUrl,

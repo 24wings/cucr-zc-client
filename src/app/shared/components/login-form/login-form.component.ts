@@ -15,13 +15,13 @@ import { SharedModule } from "../../shared.module";
   styleUrls: ["./login-form.component.scss"]
 })
 export class LoginFormComponent {
-  login = "";
-  password = "";
+  login = "admin";
+  password = "8888";
 
   constructor(
     private authService: AuthService,
     public appInfo: AppInfoService
-  ) {}
+  ) { }
 
   onLoginClick(args) {
     if (!args.validationGroup.validate().isValid) {
@@ -47,4 +47,4 @@ export class LoginFormComponent {
   declarations: [LoginFormComponent],
   exports: [LoginFormComponent]
 })
-export class LoginFormModule {}
+export class LoginFormModule { }
