@@ -14,7 +14,7 @@ import { SharedModule } from "./shared/shared.module";
 import { SingleCardModule } from "./layouts";
 
 const routes: Routes = [
-  // { path: "home", loadChildren: "./libs/home/home.module#HomeModule" },
+  { path: "home", loadChildren: "./libs/home/home.module#HomeModule" },
   { path: "admin/blog", loadChildren: "./libs/blog/blog.module#BlogModule" },
   {
     path: "admin/sql-inject",
@@ -38,11 +38,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  {
-    path: "home",
-    component: HomeComponent,
-    canActivate: [AuthGuardService]
-  },
+  // {
+  //   path: "home",
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuardService]
+  // },
   {
     path: "login-form",
     component: LoginFormComponent,

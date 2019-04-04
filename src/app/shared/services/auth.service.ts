@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import notify from "devextreme/ui/notify";
 @Injectable()
 export class AuthService {
-  loggedIn = true;
+  loggedIn = false;
 
   constructor(private router: Router, public httpClient: HttpClient) { }
 

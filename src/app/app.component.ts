@@ -37,12 +37,16 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    var data = new FormData();
+    data.append("userId", "5e5d9417-f6aa-4010-b178-bded80867816");
+    this.httpClient.post("http://192.168.1.99:5000/api/CucrSaas/App/User/getUserBaseInfo", data).toPromise();
   }
 
   constructor(
     private authService: AuthService,
     private screen: ScreenService,
-    public appInfo: AppInfoService
+    public appInfo: AppInfoService,
+    public httpClient: HttpClient
   ) {
     this.initMessages();
   }
